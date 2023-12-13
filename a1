@@ -1,0 +1,60 @@
+web view
+
+package com.example.web;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.webkit.WebView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    WebView wv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        wv=findViewById(R.id.web1);
+        wv.loadUrl("https://www.nmit.ac.in");
+    }
+}
+
+
+others
+
+package com.example.button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    EditText username;
+    EditText password;
+    Button submit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        username = findViewById(R.id.usr);
+        password = findViewById(R.id.pass);
+        submit = findViewById(R.id.button);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = username.getText().toString();
+                String msg2 = password.getText().toString();
+                String finalmsg = msg+""+msg2;
+                Toast.makeText(MainActivity.this,finalmsg, Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+}
+
